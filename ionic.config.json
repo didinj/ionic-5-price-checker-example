@@ -1,0 +1,7 @@
+{
+  "name": "pricechecker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

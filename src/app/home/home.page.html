@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Price Checker
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="name !== ''">
+    <ion-card-header>
+      <ion-card-title>{{price | currency}}</ion-card-title>
+      <ion-card-subtitle>{{name}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <h4>PLU: {{plu}}</h4>
+      <h4>Descrition: {{description}}</h4>
+      <p>
+        <ion-button (click)="clearForm()">
+          <ion-icon slot="start" name="refresh"></ion-icon>
+          Clear
+        </ion-button>
+        <ion-button (click)="scanBarcode()">
+          <ion-icon slot="start" name="camera"></ion-icon>
+          Scan
+        </ion-button>
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="name === ''">
+    <ion-card-content>
+      <p>
+        <ion-button (click)="scanBarcode()">
+          <ion-icon slot="start" name="camera"></ion-icon>
+          Check
+        </ion-button>
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Manually Input</ion-label>
+        <ion-input type="number" [(ngModel)]="productnumber"></ion-input>
+      </ion-item>  
+      <ion-button (click)="checkManually()">
+        <ion-icon slot="start" name="send"></ion-icon>
+        Scan
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
